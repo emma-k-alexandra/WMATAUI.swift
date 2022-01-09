@@ -124,7 +124,7 @@ struct ContentView_Previews: PreviewProvider {
             Text("Metro Brand Icons:")
             HStack {
                 WMATAUI.roundel(image: Image(metroName: "train"), color: .gray, textColor: .purple, style: style)
-                WMATAUI.roundel(image: Image(metroName: "escalator.up"), color: .white, textColor: .green, style: style)
+                WMATAUI.roundel(image: Image(metroName: "accessible"), color: .white, textColor: .green, style: style)
                 WMATAUI.roundel(image: Image(metroName: "escalator.down"), color: .green, textColor: .white, style: style)
                 WMATAUI.roundel(image: Image(metroName: "bus"), color: .green, textColor: .black, style: style)
             }
