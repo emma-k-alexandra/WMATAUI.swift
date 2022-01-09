@@ -86,6 +86,7 @@ public struct WMATAUI {
     private static func roundel(view: AnyView, color: Color, textColor: Color, style: Font.TextStyle, factor: CGFloat = 1.0) -> some View {
         ZStack {
             WMATAUI.dot(color: color, style: style, factor: 1.0 * factor)
+                .layoutPriority(1)
             view
                 .font(.metroFont(style, factor: 0.5 * factor).weight(.bold))
                 .foregroundColor(textColor)
@@ -99,9 +100,10 @@ public struct WMATAUI {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let style = Font.TextStyle.largeTitle
+        let tram = "tram.fill"
         VStack {
             HStack {
-                WMATAUI.roundel(text: "AB", color: .purple, textColor: .white, style: style)
+                WMATAUI.roundel(text: "WW", color: .purple, textColor: .white, style: style)
                 Text("Text Fits").font(.metroFont(style))
             }
             HStack {
@@ -109,15 +111,22 @@ struct ContentView_Previews: PreviewProvider {
                 Text("Text To Long").font(.metroFont(style))
             }
             HStack {
-                WMATAUI.roundel(image: Image(systemName: "tram.fill"), color: .purple, textColor: .white, style: style)
+                WMATAUI.roundel(image: Image(systemName: tram), color: .purple, textColor: .white, style: style)
                 Text("System Image").font(.metroFont(style))
             }
             Text("Different Colors:")
             HStack {
-                WMATAUI.roundel(image: Image(systemName: "tram.fill"), color: .gray, textColor: .purple, style: style)
-                WMATAUI.roundel(image: Image(systemName: "tram.fill"), color: .white, textColor: .green, style: style)
-                WMATAUI.roundel(image: Image(systemName: "tram.fill"), color: .green, textColor: .white, style: style)
-                WMATAUI.roundel(image: Image(systemName: "tram.fill"), color: .green, textColor: .black, style: style)
+                WMATAUI.roundel(image: Image(systemName: tram), color: .gray, textColor: .purple, style: style)
+                WMATAUI.roundel(image: Image(systemName: tram), color: .white, textColor: .green, style: style)
+                WMATAUI.roundel(image: Image(systemName: tram), color: .green, textColor: .white, style: style)
+                WMATAUI.roundel(image: Image(systemName: tram), color: .green, textColor: .black, style: style)
+            }
+            Text("Metro Brand Icons:")
+            HStack {
+                WMATAUI.roundel(image: Image(metroName: "train"), color: .gray, textColor: .purple, style: style)
+                WMATAUI.roundel(image: Image(metroName: "escalator.up"), color: .white, textColor: .green, style: style)
+                WMATAUI.roundel(image: Image(metroName: "escalator.down"), color: .green, textColor: .white, style: style)
+                WMATAUI.roundel(image: Image(metroName: "bus"), color: .green, textColor: .black, style: style)
             }
         }
     }
